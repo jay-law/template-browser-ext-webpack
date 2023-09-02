@@ -1,0 +1,48 @@
+{
+    "manifest_version": 2,
+    "name": "ExtensionTemplate",
+    "version": "1.0",
+    "description": "Template for browser extension",
+    "icons": {
+        "16": "/assets/images/icon-white.svg",
+        "32": "/assets/images/icon-white.svg",
+        "48": "/assets/images/icon-white.svg",
+        "128": "/assets/images/icon-white.svg"
+    },
+    "browser_action": {
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "/assets/data/*.json"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "file://*/*"
+            ],
+            "js": [
+                "/content/content_script.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "sidebar_action": {
+        "default_title": "ExtensionTemplate",
+        "default_panel": "sidebar/sidebar.html",
+        "default_icon": {
+            "16": "/assets/images/icon-white.svg",
+            "32": "/assets/images/icon-white.svg",
+            "48": "/assets/images/icon-white.svg",
+            "128": "/assets/images/icon-white.svg"
+        }
+    },
+    "background": {
+        "scripts": [
+            "/background/background.js"
+        ],
+        "persistent": false
+    }
+}
